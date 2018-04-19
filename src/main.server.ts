@@ -13,11 +13,21 @@ enableProdMode();
 
 const PORT = process.env.PORT || 4000;
 
+let requestListener = api;
+
 // Start up the Node server
-const server = createServer(api);
+const server = createServer((req, res) => {
+  requestListener(req, res);
+});
 
 server.listen(PORT, () => {
   console.log(`Server listening -- http://localhost:${PORT}`);
 });
+
+if (module.hot) {
+  module.hot.accept('./api', () => {
+    requestListener = require('./api').api;
+  });
+}
 
 export default server;
