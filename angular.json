@@ -70,6 +70,31 @@
             "outputPath": "dist/app/server",
             "main": "src/app/ngmodule.ts",
             "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+            }
+          }
+        },
+        "udk": {
+          "builder": "udk:udk-builder",
+          "options": {
+            "main": "src/main.server.ts",
+            "browserTarget": "ng-universal:build",
+            "serverTarget": "ng-universal:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-universal:build:production",
+              "serverTarget": "ng-universal:server:production",
+              "verbose": true,
+              "fileReplacements": [
+                {
+                  "src": "src/environments/environment.ts",
+                  "replaceWith": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
           }
         },
         "extract-i18n": {

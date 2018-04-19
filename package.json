@@ -2,10 +2,14 @@
   "name": "ng-universal",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "dist/app/server/main.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --hmr",
-    "build": "ng build",
+    "prestart": "npm run build:prod",
+    "start": "node $npm_package_main",
+    "build": "ng run ng-universal:udk",
+    "build:prod": "ng run ng-universal:udk:production",
+    "dev:spa": "ng serve --hmr",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -48,6 +52,7 @@
     "protractor": "~5.3.1",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
-    "typescript": "~2.7.2"
+    "typescript": "~2.7.2",
+    "udk": "^0.3.9"
   }
 }
