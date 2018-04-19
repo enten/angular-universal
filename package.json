@@ -9,6 +9,7 @@
     "start": "node $npm_package_main",
     "build": "ng run ng-universal:udk",
     "build:prod": "ng run ng-universal:udk:production",
+    "dev": "ng-udkc",
     "dev:spa": "ng serve --hmr",
     "test": "ng test",
     "lint": "ng lint",
