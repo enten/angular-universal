@@ -20,7 +20,9 @@
     "@angular/http": "^6.0.0-rc.5",
     "@angular/platform-browser": "^6.0.0-rc.5",
     "@angular/platform-browser-dynamic": "^6.0.0-rc.5",
+    "@angular/platform-server": "^6.0.0-rc.4",
     "@angular/router": "^6.0.0-rc.5",
+    "@nguniversal/module-map-ngfactory-loader": "^5.0.0",
     "core-js": "^2.5.5",
     "rxjs": "^6.0.0-uncanny-rc.7",
     "zone.js": "^0.8.26"
