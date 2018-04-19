@@ -13,7 +13,9 @@
     "dev:spa": "ng serve --hmr",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "now-build": "ng run ng-universal:udk:production",
+    "now-start": "node $npm_package_main"
   },
   "private": true,
   "dependencies": {

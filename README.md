@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0-rc.5.
 
+## Demo
+
+[Live Demo](https://ng-universal-uwasvwgjiu.now.sh/) is running on [now.sh](https://zeit.co/steventen/ng-universal/uwasvwgjiu/).
+
 ## Development server
 
 Two different dev servers are provided:
