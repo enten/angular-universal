@@ -1,6 +1,6 @@
 # NgUniversal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0-rc.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0-rc.7.
 
 ## Demo
 
@@ -10,13 +10,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This starter kit contains all the minimal tooling and configuration you need to kick off your next universal Angular 6 project.
 
-It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v6.0.0-rc.2) and [udk](https://github.com/enten/udk) to won't have to write specific code for development purposes only.
+It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v6.0.0-rc.7) and [udk](https://github.com/enten/udk) to won't have to write specific code for development purposes only.
 
 ## Features
 
-* [angular 6](https://github.com/angular/angular/tree/6.0.0-rc.3) as universal web application platform
-* [module-map-ngfactory-loader](https://github.com/angular/universal/tree/v5.0.0) as server side rendering of lazy routes
-* [angular/cli 6](https://github.com/angular/angular-cli/tree/v6.0.0-rc.2) as code scaffolder
+* [angular 6](https://github.com/angular/angular/tree/6.0.0-rc.6) as universal web application platform
+* [module-map-ngfactory-loader](https://github.com/angular/universal/tree/v6.0.0-rc.1) as server side rendering of lazy routes
+* [angular/cli 6](https://github.com/angular/angular-cli/tree/v6.0.0-rc.7) as code scaffolder
 * [webpack 4](https://github.com/webpack/webpack/tree/v4.5.0) as module bundler
 * [node](https://nodejs.org/dist/latest-v8.x/docs/api/) as server
 * [express](http://expressjs.com/en/4x/api.html) as request handler
