@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 export const APP_ID = 'my-app';
@@ -13,6 +15,7 @@ export const APP_ID = 'my-app';
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardComponent,
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
@@ -20,6 +23,7 @@ export const APP_ID = 'my-app';
   imports: [
     BrowserModule.withServerTransition({ appId: APP_ID }),
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ],

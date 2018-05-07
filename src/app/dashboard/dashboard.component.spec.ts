@@ -1,25 +1,19 @@
 import { APP_BASE_HREF } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeroesComponent } from './heroes.component';
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { DashboardComponent } from './dashboard.component';
 
-describe('HeroesComponent', () => {
-  let component: HeroesComponent;
-  let fixture: ComponentFixture<HeroesComponent>;
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
 
   const mockActivatedRoute: ActivatedRoute = new ActivatedRoute();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        HeroesComponent,
-        HeroDetailComponent
-      ],
+      declarations: [ DashboardComponent ],
       imports: [
-        FormsModule,
         RouterModule.forRoot([])
       ],
       providers: [
@@ -31,7 +25,7 @@ describe('HeroesComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeroesComponent);
+    fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
