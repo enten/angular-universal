@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { MessagesComponent } from './messages/messages.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -17,6 +18,7 @@ describe('AppComponent', () => {
         AppComponent,
         HeroesComponent,
         HeroDetailComponent,
+        MessagesComponent,
       ],
     }).compileComponents();
   }));
