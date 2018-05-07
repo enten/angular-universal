@@ -1,26 +1,22 @@
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeroesComponent } from './heroes.component';
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { HeroDetailComponent } from './hero-detail.component';
 
-describe('HeroesComponent', () => {
-  let component: HeroesComponent;
-  let fixture: ComponentFixture<HeroesComponent>;
+describe('HeroDetailComponent', () => {
+  let component: HeroDetailComponent;
+  let fixture: ComponentFixture<HeroDetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        HeroesComponent,
-        HeroDetailComponent
-      ],
+      declarations: [ HeroDetailComponent ],
       imports: [ FormsModule ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeroesComponent);
+    fixture = TestBed.createComponent(HeroDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

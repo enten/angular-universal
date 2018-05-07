@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 
 describe('AppComponent', () => {
@@ -15,6 +16,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         HeroesComponent,
+        HeroDetailComponent,
       ],
     }).compileComponents();
   }));
