@@ -1,37 +1,28 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { RouterModule, ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { HeroesComponent } from './heroes.component';
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { HeroSearchComponent } from './hero-search.component';
 
-describe('HeroesComponent', () => {
-  let component: HeroesComponent;
-  let fixture: ComponentFixture<HeroesComponent>;
+describe('HeroSearchComponent', () => {
+  let component: HeroSearchComponent;
+  let fixture: ComponentFixture<HeroSearchComponent>;
 
   let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
 
-  const mockActivatedRoute: ActivatedRoute = new ActivatedRoute();
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        HeroesComponent,
-        HeroDetailComponent
-      ],
+      declarations: [ HeroSearchComponent ],
       imports: [
-        FormsModule,
         RouterModule.forRoot([]),
         HttpClientTestingModule
       ],
       providers: [
-        { provide: APP_BASE_HREF, useValue: '/' },
-        { provide: ActivatedRoute, useValue: mockActivatedRoute }
+        { provide: APP_BASE_HREF, useValue: '/' }
       ]
     })
     .compileComponents();
@@ -42,7 +33,7 @@ describe('HeroesComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeroesComponent);
+    fixture = TestBed.createComponent(HeroSearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

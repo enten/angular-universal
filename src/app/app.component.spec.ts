@@ -6,6 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -23,6 +24,7 @@ describe('AppComponent', () => {
         DashboardComponent,
         HeroesComponent,
         HeroDetailComponent,
+        HeroSearchComponent,
         MessagesComponent,
       ],
       providers: [

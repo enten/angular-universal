@@ -1,14 +1,19 @@
 import { APP_BASE_HREF } from '@angular/common';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, ActivatedRoute, UrlSegment, ActivatedRouteSnapshot, ParamMap } from '@angular/router';
+import { RouterModule, ActivatedRoute, ActivatedRouteSnapshot, ParamMap } from '@angular/router';
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { HeroDetailComponent } from './hero-detail.component';
-import { of } from 'rxjs';
 
 describe('HeroDetailComponent', () => {
   let component: HeroDetailComponent;
   let fixture: ComponentFixture<HeroDetailComponent>;
+
+  let httpClient: HttpClient;
+  let httpTestingController: HttpTestingController;
 
   class MockActivatedRoute extends ActivatedRoute {
     snapshot = {
@@ -30,7 +35,8 @@ describe('HeroDetailComponent', () => {
       declarations: [ HeroDetailComponent ],
       imports: [
         FormsModule,
-        RouterModule.forRoot([])
+        RouterModule.forRoot([]),
+        HttpClientTestingModule
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' },
@@ -38,6 +44,10 @@ describe('HeroDetailComponent', () => {
       ]
     })
     .compileComponents();
+
+    // Inject the http service and test controller for each test
+    httpClient = TestBed.get(HttpClient);
+    httpTestingController = TestBed.get(HttpTestingController);
   }));
 
   beforeEach(() => {
