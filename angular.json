@@ -73,6 +73,12 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -87,13 +93,7 @@
             "production": {
               "browserTarget": "ng-universal:build:production",
               "serverTarget": "ng-universal:server:production",
-              "verbose": true,
-              "fileReplacements": [
-                {
-                  "src": "src/environments/environment.ts",
-                  "replaceWith": "src/environments/environment.prod.ts"
-                }
-              ]
+              "verbose": true
             }
           }
         },
