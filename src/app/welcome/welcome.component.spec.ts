@@ -1,6 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
+import { MaterialModule } from '../material.module';
 import { WelcomeComponent } from './welcome.component';
 
 
@@ -9,6 +10,7 @@ describe('WelcomeComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
+        MaterialModule,
       ],
       declarations: [
         WelcomeComponent,

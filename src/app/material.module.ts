@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 
 import {
   MatButtonModule,
-  MatCheckboxModule
+  MatCardModule,
+  MatToolbarModule
 } from '@angular/material';
 
 export const MATERIAL_COMPONENTS = [
   MatButtonModule,
-  MatCheckboxModule
+  MatCardModule,
+  MatToolbarModule
 ];
 
 @NgModule({
