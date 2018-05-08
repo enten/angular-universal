@@ -36,6 +36,34 @@ npm install
 npm start
 ```
 
+### Branches
+
+#### Branch [material](https://github.com/enten/angular-universal/tree/material)
+
+<div align="center">
+  <img alt="Preview of branch material" src="https://i.imgur.com/khXkDnA.png">
+</div>
+
+```shell
+git clone https://github.com/enten/angular-universal -b material my-project
+cd my-project
+npm install
+npm start
+```
+
+#### Branch [toh](https://github.com/enten/angular-universal/tree/toh)
+
+<div align="center">
+  <img alt="Preview of branch toh" src="https://i.imgur.com/T2TzP7t.png">
+</div>
+
+```shell
+git clone https://github.com/enten/angular-universal -b toh my-project
+cd my-project
+npm install
+npm start
+```
+
 ## Development server
 
 Two different dev servers are provided:
