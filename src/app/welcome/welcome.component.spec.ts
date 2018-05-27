@@ -20,15 +20,10 @@ describe('WelcomeComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as title 'angular'`, async(() => {
-    const fixture = TestBed.createComponent(WelcomeComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('angular');
-  }));
   it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(WelcomeComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular!');
+    expect(compiled.querySelector('h1').textContent).toContain('Hello i18n!');
   }));
 });

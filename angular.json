@@ -33,6 +33,14 @@
             "scripts": []
           },
           "configurations": {
+            "fr": {
+              "aot": true,
+              "outputPath": "dist/app-fr/browser",
+              "i18nFile": "src/locale/messages.fr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "fr",
+              "i18nMissingTranslation": "error"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -65,8 +73,14 @@
             "browserTarget": "app:build"
           },
           "configurations": {
+            "fr": {
+              "browserTarget": "app:build:fr"
+            },
             "production": {
               "browserTarget": "app:build:production"
+            },
+            "production-fr": {
+              "browserTarget": "app:build:production-fr"
             }
           }
         },
@@ -78,6 +92,13 @@
             "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
+            "fr": {
+              "outputPath": "dist/app-fr/server",
+              "i18nFile": "src/locale/messages.fr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "fr",
+              "i18nMissingTranslation": "error"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -86,6 +107,20 @@
                 }
               ],
               "outputHashing": "media"
+            },
+            "production-fr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "media",
+              "outputPath": "dist/app-fr/server",
+              "i18nFile": "src/locale/messages.fr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "fr",
+              "i18nMissingTranslation": "error"
             }
           }
         },
@@ -96,9 +131,18 @@
             "serverTarget": "app:server"
           },
           "configurations": {
+            "fr": {
+              "browserTarget": "app:build:fr",
+              "serverTarget": "app:server:fr"
+            },
             "production": {
               "browserTarget": "app:build:production",
               "serverTarget": "app:server:production",
+              "verbose": true
+            },
+            "production-fr": {
+              "browserTarget": "app:build:production-fr",
+              "serverTarget": "app:server:production-fr",
               "verbose": true
             }
           }

@@ -7,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./welcome.component.scss'],
 })
 export class WelcomeComponent {
-  title = 'angular';
+  minutes = 0;
+  gender = 'female';
+  fly = true;
+  logo = 'https://angular.io/assets/images/logos/angular/angular.png';
+  heroes: string[] = ['Magneta', 'Celeritas', 'Dynama'];
+  inc(i: number) {
+    this.minutes = Math.min(5, Math.max(0, this.minutes + i));
+  }
+  male() { this.gender = 'male'; }
+  female() { this.gender = 'female'; }
+  other() { this.gender = 'other'; }
 }
