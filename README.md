@@ -64,6 +64,19 @@ npm install
 npm start
 ```
 
+#### Branch [i18n](https://github.com/enten/angular-universal/tree/i18n)
+
+<div align="center">
+  <img alt="Preview of branch i18n" src="https://i.imgur.com/6h2dkk7.png">
+</div>
+
+```shell
+git clone https://github.com/enten/angular-universal -b i18n my-project
+cd my-project
+npm install
+npm run start:fr
+```
+
 ## Development server
 
 Two different dev servers are provided:
