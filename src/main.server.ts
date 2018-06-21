@@ -9,24 +9,31 @@ import { enableProdMode } from '@angular/core';
 
 export { AppServerModule } from './app/app.server.module';
 
-import { ngRenderMiddleware } from './api';
+import { NgRenderMiddlewareOptions, ngRenderMiddleware } from './api';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
 export const PORT = process.env.PORT || 4000;
 
-export const DIST_BROWSER_PATH = join(__dirname, '..', 'browser');
-export const INDEX_HTML_PATH = join(DIST_BROWSER_PATH, 'index.html');
+// Our browser bundle
+export const BROWSER_DIST_PATH = join(__dirname, '..', 'browser');
 
-export const getRenderModuleFactoryOptions = () => ({
-  distBrowserPath: DIST_BROWSER_PATH,
+// Our index.html
+export const INDEX_HTML_PATH = join(BROWSER_DIST_PATH, 'index.html');
+
+export const ngRenderMiddlewareOptions: NgRenderMiddlewareOptions = {
+  browserDistPath: BROWSER_DIST_PATH,
   indexHtmlPath: INDEX_HTML_PATH,
-  lazyModuleMap: exports.LAZY_MODULE_MAP,
-  ngFactory: exports.AppServerModuleNgFactory
-});
+  get ngModuleFactory() {
+    return exports.AppServerModuleNgFactory;
+  },
+  get lazyModuleMap() {
+    return exports.LAZY_MODULE_MAP;
+  }
+};
 
-let requestListener = ngRenderMiddleware(module);
+let requestListener = ngRenderMiddleware(ngRenderMiddlewareOptions);
 
 // Start up the Node server
 const server = createServer((req, res) => {
@@ -43,7 +50,7 @@ if (module.hot) {
 
     exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
 
-    requestListener = require('./api').ngRenderMiddleware(module);
+    requestListener = require('./api').ngRenderMiddleware(ngRenderMiddlewareOptions);
   };
 
   module.hot.accept('./api', hmr);

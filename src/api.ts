@@ -1,47 +1,42 @@
+import { join } from 'path';
 import { readFileSync } from 'fs';
 
 import { renderModuleFactory } from '@angular/platform-server';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import { ModuleMap } from '@nguniversal/module-map-ngfactory-loader/src/module-map';
 
 import * as express from 'express';
 
-export function ngRenderMiddleware(mod) {
-  if (typeof mod.exports.getRenderModuleFactoryOptions === 'undefined') {
-    throw new Error('getRenderModuleFactoryOptions() is missing.');
-  }
+export interface NgRenderMiddlewareOptions {
+  browserDistPath: string;
+  indexHtmlPath?: string;
+  ngModuleFactory: any;
+  lazyModuleMap?: ModuleMap;
+}
 
-  const {
-    distBrowserPath,
-    indexHtmlPath
-  } = mod.exports.getRenderModuleFactoryOptions();
-
-  // Our index.html
+export function ngRenderMiddleware(options: NgRenderMiddlewareOptions) {
+  const indexHtmlPath = options.indexHtmlPath || join(options.browserDistPath, 'index.html');
   const indexHtml = readFileSync(indexHtmlPath, 'utf-8');
 
   const api = express();
 
   api.set('view engine', 'html');
-  api.set('views', distBrowserPath);
+  api.set('views', options.browserDistPath);
 
-  api.engine('html', (_, options, callback) => {
-    const {
-      ngFactory,
-      lazyModuleMap
-    } = mod.exports.getRenderModuleFactoryOptions();
-
-    renderModuleFactory(ngFactory, {
+  api.engine('html', (_, { req }, callback) => {
+    renderModuleFactory(options.ngModuleFactory, {
       document: indexHtml,
-      url: options.req.url,
+      url: req.url,
       // DI so that we can get lazy-loading to work differently (since we need it to just instantly render it)
       extraProviders: [
-        provideModuleMap(lazyModuleMap)
+        provideModuleMap(options.lazyModuleMap || {})
       ]
     })
     .then(html => callback(null, html));
   });
 
   // Server static files from /browser
-  api.get('*.*', express.static(distBrowserPath));
+  api.get('*.*', express.static(options.browserDistPath));
 
   // All regular routes use the Universal engine
   api.get('*', (req, res) => res.render(indexHtmlPath, { req }));
