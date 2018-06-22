@@ -1,4 +1,3 @@
-import { join } from 'path';
 import { ngExpressEngine, NgSetupOptions } from '@nguniversal/express-engine';
 
 import * as express from 'express';
