@@ -6,7 +6,7 @@ import { createServer } from 'http';
 import { join } from 'path';
 
 import { enableProdMode } from '@angular/core';
-import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import { MODULE_MAP } from '@nguniversal/module-map-ngfactory-loader';
 
 import { createApi } from './api';
 
@@ -19,7 +19,11 @@ export const getNgRenderMiddlewareOptions = () => ({
   bootstrap: exports.AppServerModuleNgFactory,
   providers: [
     // Import module map for lazy loading
-    provideModuleMap(exports.LAZY_MODULE_MAP)
+    {
+      provide: MODULE_MAP,
+      useFactory: () => exports.LAZY_MODULE_MAP,
+      deps: []
+    }
   ]
 });
 
