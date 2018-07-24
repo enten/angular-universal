@@ -75,7 +75,8 @@
           "options": {
             "outputPath": "dist/app/server",
             "main": "src/server.ts",
-            "tsConfig": "tsconfig.server.json"
+            "tsConfig": "tsconfig.server.json",
+            "bundleDependencies": "all"
           },
           "configurations": {
             "production": {
