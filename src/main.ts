@@ -3,6 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { createNewHosts } from '@angularclass/hmr';
 
+import { AppConfigService } from './app/app-config.service';
 import { AppBrowserModule } from './app/app.browser.module';
 import { environment } from './environments/environment';
 
@@ -30,6 +31,11 @@ async function main(): Promise<NgModuleRef<AppBrowserModule>> {
   }
 
   console.log('AppBrowserModule boostraped!', ngModuleRef);
+
+  const appConfigService = ngModuleRef.injector.get(AppConfigService);
+  const appConfig = appConfigService.all();
+
+  console.log(appConfig);
 
   return ngModuleRef;
 }

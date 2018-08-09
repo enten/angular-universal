@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 
+import { AppConfigModule } from './app-config.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found.component';
-
 
 export const APP_ID = 'my-app';
 
@@ -16,7 +16,9 @@ export const APP_ID = 'my-app';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: APP_ID }),
+    BrowserTransferStateModule,
     AppRoutingModule,
+    AppConfigModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ],

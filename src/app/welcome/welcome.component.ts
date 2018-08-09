@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { AppConfigService } from '../app-config.service';
+
 
 @Component({
   selector: 'app-welcome',
@@ -7,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./welcome.component.scss'],
 })
 export class WelcomeComponent {
-  title = 'angular';
+  title = 'app';
+
+  constructor(
+    public readonly universalConfigService: AppConfigService,
+  ) {
+    this.title = universalConfigService.get<string>('foo');
+  }
 }

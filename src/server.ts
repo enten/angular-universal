@@ -11,6 +11,8 @@ import { NgSetupOptions } from '@nguniversal/express-engine';
 import { MODULE_MAP } from '@nguniversal/module-map-ngfactory-loader';
 
 import { createApi } from './api';
+import { APP_CONFIG_TOKEN } from './app/app-config.service';
+import { Config } from './environments/config';
 
 
 // WARN: don't remove export of AppServerModule.
@@ -28,6 +30,11 @@ export const getNgRenderMiddlewareOptions: () => NgSetupOptions = () => ({
     {
       provide: MODULE_MAP,
       useFactory: () => exports.LAZY_MODULE_MAP,
+      deps: []
+    },
+    {
+      provide: APP_CONFIG_TOKEN,
+      useValue: Config,
       deps: [],
     },
   ],
