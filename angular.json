@@ -85,7 +85,6 @@
         "udk": {
           "builder": "udk:udk-builder",
           "options": {
-            "main": "src/main.server.ts",
             "browserTarget": "ng-universal:build",
             "serverTarget": "ng-universal:server"
           },
