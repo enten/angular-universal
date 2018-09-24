@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 export const APP_ID = 'my-app';
@@ -10,7 +11,8 @@ export const APP_ID = 'my-app';
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: APP_ID })
+    BrowserModule.withServerTransition({ appId: APP_ID }),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]

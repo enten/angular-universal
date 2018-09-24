@@ -3,6 +3,7 @@ module.exports = {
   angularProject: 'ng-universal',
   hmr: true,
   metafiles: [
+    __filename,
     'angular.json',
     'package.json',
     'src/tsconfig.app.json',
@@ -12,45 +13,75 @@ module.exports = {
     'src/main.server.ts',
     'tsconfg.json'
   ],
+  logger: console,
 
-  bootstrap(proc, configPath) {
-    this.logger.info('[udk] > bootstrap container');
+  bootstrap(container) {
+    this.logger.info(`> bootstrap container (pid: ${container.proc.pid})`);
   },
-  onCompilerWatchClose() {
-    this.logger.info('[udk] >>> compiler watch close');
+  onUp(container) {
+    this.logger.info(`>> container up (pid: ${container.proc.pid})`);
   },
-  onCompilerDone(stats) {
-    this.logger.info('[udk] >>> compiler done');
+  onDown(container) {
+    this.logger.info('>> container down', { pid: container.proc.pid });
   },
-  onCompilerFailed(err) {
-    this.logger.error('[udk] >>> compiler failed');
-  },
-  onCompilerWatching(err, stats) {
-    this.logger.info('[udk] >>> compiler watching...');
-  },
-  onDown(event, ...args) {
-    this.logger.info('[udk] >> container down', { event, args });
-  },
-  onUncaughtException(err) {
-    this.logger.error('[udk] uncaught exception', err);
-  },
-  onUnhandledRejection(reason, promise) {
-    this.logger.error('[udk] unhandled rejection', {reason, promise});
-  },
-  onUp(proc) {
-    this.logger.info('[udk] >> container up');
-  },
-  prepareCompiler(compiler) {
-    this.logger.info('[udk] >>> prepare webpack compiler');
 
-    compiler.compilers.forEach((c) => {
-      c.hooks.invalid.tap('LogPlugin',(file) => {
-        this.logger.info('[udk] >>> compiler invalid', c.name, file);
-      });
-    })
+  onCompilerShouldEmit(compiler, compilation) {
+    this.logger.info(`>>> [${compiler.name}] compiler should emit`);
+
+    return true;
   },
-  prepareWebpackConfig() {
-    this.logger.info('[udk] >>> prepare webpack config');
-  }
+  onCompilerWatchRun(compiler, done) {
+    this.logger.info(`>>> [${compiler.name}] watchRun`);
+    done();
+  },
+  onCompilerBeforeCompile(compiler, compilationParams, done) {
+    this.logger.info(`>>> [${compiler.name}] beforeCompile`);
+    done();
+  },
+  onCompilerCompile(compiler, compilationParams) {
+    this.logger.info(`>>> [${compiler.name}] compile`);
+  },
+  onCompilerThisCompilation(compiler, compilation, compilationParams) {
+    this.logger.info(`>>> [${compiler.name}] thisCompilation`);
+  },
+  onCompilerCompilation(compiler, compilation, compilationParams) {
+    this.logger.info(`>>> [${compiler.name}] compilation`);
+  },
+  onCompilerMake(compiler, compilation, done) {
+    this.logger.info(`>>> [${compiler.name}] make`);
+    done();
+  },
+  onCompilerEmit(compiler, compilation, done) {
+    this.logger.info(`>>> [${compiler.name}] emit`);
+    done();
+  },
+  onCompilerAfterEmit(compiler, compilation, done) {
+    this.logger.info(`>>> [${compiler.name}] afterEmit`);
+    done();
+  },
+  onCompilerDone(compiler, compilation, done) {
+    this.logger.info(`>>> [${compiler.name}] done`);
+
+    if (done) {
+      done();
+    }
+  },
+  onCompilerFailed(compiler, err) {
+    this.logger.info(`>>> [${compiler.name}] failed`);
+  },
+  onCompilerInvalid(compiler, fileName, changeTime) {
+    this.logger.info(`>>> [${compiler.name}] invalid: ${fileName}`);
+  },
+  onCompilerWatchClose(compiler) {
+    this.logger.info(`>>> [${compiler.name}] watchClose`);
+  },
+  onBundleAvailable(bundle) {
+    this.logger.info(`>>> [${bundle.compiler.name}] bundleAvailable ${bundle.mainOutputPath}`);
+  },
+  prepareWebpackCompiler(compiler) {
+    this.logger.info(`>> prepare compiler ${compiler.name}`);
+  },
+  prepareWebpackConfig(compiler) {
+    this.logger.info(`>> prepare webpack config ${compiler.name}`);
+  },
 };
-
