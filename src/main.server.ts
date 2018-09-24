@@ -7,6 +7,7 @@ import { join } from 'path';
 
 import { enableProdMode } from '@angular/core';
 import { MODULE_MAP } from '@nguniversal/module-map-ngfactory-loader';
+import { NgSetupOptions } from '@nguniversal/express-engine';
 
 import { createApi } from './api';
 
@@ -15,14 +16,14 @@ export { AppServerModule } from './app/app.server.module';
 export const PORT = process.env.PORT || 4000;
 export const BROWSER_DIST_PATH = join(__dirname, '..', 'browser');
 
-export const getNgRenderMiddlewareOptions = () => ({
+export const getNgRenderMiddlewareOptions: () => NgSetupOptions = () => ({
   bootstrap: exports.AppServerModuleNgFactory,
   providers: [
     // Import module map for lazy loading
     {
       provide: MODULE_MAP,
       useFactory: () => exports.LAZY_MODULE_MAP,
-      deps: []
+      deps: [],
     }
   ]
 });

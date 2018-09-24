@@ -15,7 +15,7 @@ export function createApi(distPath: string, ngSetupOptions: NgSetupOptions) {
   api.get('*.*', express.static(distPath));
 
   // All regular routes use the Universal engine
-  api.get('*', (req, res) => res.render('index', { req }));
+  api.get('*', (req, res) => res.render('index', { req, res }));
 
   return api;
 }
