@@ -8,15 +8,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## About
 
-This starter kit contains all the minimal tooling and configuration you need to kick off your next universal Angular 6 project.
+This starter kit contains all the minimal tooling and configuration you need to kick off your next universal Angular 7 project.
 
-It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v6.0.0) and [udk](https://github.com/enten/udk) to won't have to write specific code for development purposes only.
+It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v7.0.0-beta.4) and [udk](https://github.com/enten/udk) to won't have to write specific code for development purposes only.
 
 ## Features
 
-* [angular 6](https://github.com/angular/angular/tree/6.0.0) as universal web application platform
+* [angular 7](https://github.com/angular/angular/tree/7.0.0-beta.5) as universal web application platform
 * [module-map-ngfactory-loader 6](https://github.com/angular/universal/tree/v6.0.0) as server side rendering of lazy routes
-* [angular/cli 6](https://github.com/angular/angular-cli/tree/v6.0.0) as code scaffolder
+* [angular/cli 7](https://github.com/angular/angular-cli/tree/v7.0.0-beta.4) as code scaffolder
 * [webpack 4](https://github.com/webpack/webpack/tree/v4.6.0) as module bundler
 * [node](https://nodejs.org/dist/latest-v8.x/docs/api/) as server
 * [express](http://expressjs.com/en/4x/api.html) as request handler
