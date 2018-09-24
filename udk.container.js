@@ -1,6 +1,6 @@
 module.exports = {
   context: __dirname,
-  angularProject: 'ng-universal',
+  angularProject: 'angular',
   hmr: true,
   metafiles: [
     __filename,

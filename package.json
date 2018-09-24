@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "prestart": "npm run build:prod",
-    "start": "node $npm_package_main",
+    "start": "node ./dist/app/server/main.js",
     "build": "ng run angular:udk",
     "build:prod": "ng run angular:udk:production",
     "dev": "ng-udkc",
@@ -13,7 +13,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "now-build": "ng run angular:udk:production",
-    "now-start": "node $npm_package_main"
+    "now-start": "node ./dist/app/server/main.js"
   },
   "private": true,
   "dependencies": {

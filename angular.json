@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-universal": {
+    "angular": {
       "root": "",
       "projectType": "application",
       "prefix": "app",
@@ -56,11 +56,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-universal:build"
+            "browserTarget": "angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-universal:build:production"
+              "browserTarget": "angular:build:production"
             }
           }
         },
@@ -85,13 +85,13 @@
         "udk": {
           "builder": "udk:udk-builder",
           "options": {
-            "browserTarget": "ng-universal:build",
-            "serverTarget": "ng-universal:server"
+            "browserTarget": "angular:build",
+            "serverTarget": "angular:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-universal:build:production",
-              "serverTarget": "ng-universal:server:production",
+              "browserTarget": "angular:build:production",
+              "serverTarget": "angular:server:production",
               "verbose": true
             }
           }
@@ -99,7 +99,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-universal:build"
+            "browserTarget": "angular:build"
           }
         },
         "test": {
@@ -143,7 +143,7 @@
         }
       }
     },
-    "ng-universal-e2e": {
+    "angular-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -151,7 +151,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ng-universal:serve"
+            "devServerTarget": "angular:serve"
           }
         },
         "lint": {
