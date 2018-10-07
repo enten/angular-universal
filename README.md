@@ -20,8 +20,8 @@ It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v7.0.0-rc
 * [webpack 4](https://github.com/webpack/webpack/tree/v4.19.1) as module bundler
 * [node](https://nodejs.org/dist/latest-v8.x/docs/api/) as server
 * [express](http://expressjs.com/en/4x/api.html) as request handler
-* [udk-builder](https://github.com/enten/udk/blob/master/angular/lib/udk-builder.js) as architect builder
-* [ng-udkc](https://github.com/enten/udk#dev-container) as extreme live development container to _**reload all the things!**_
+* [udk-builder](https://github.com/enten/udk/blob/master/angular/lib/udk-builder.ts) as architect builder
+* [ng-udkc](https://github.com/enten/udk/tree/master/angular#ngcontainer) as extreme live development container to _**reload all the things!**_
     * [webpack/hot/poll](https://github.com/webpack/webpack/blob/v4.19.1/hot/poll.js) to enable hmr on server side
     * [webpack-hot-middleware](https://github.com/webpack-contrib/webpack-hot-middleware) (dynamically mounted on server) and [@angularclass/hmr](https://github.com/gdi2290/angular-hmr) to enable hmr on
 browser side
