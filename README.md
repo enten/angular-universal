@@ -1,6 +1,6 @@
 # Universal Angular Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.0-rc.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
 
 ## Demo
 
@@ -10,13 +10,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This starter kit contains all the minimal tooling and configuration you need to kick off your next universal Angular 7 project.
 
-It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v7.0.0-rc.2) and [udk](https://github.com/enten/udk) to won't have to write specific code for development purposes only.
+It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v7.0.2) and [udk](https://github.com/enten/udk) to won't have to write specific code for development purposes only.
 
 ## Features
 
-* [angular 7](https://github.com/angular/angular/tree/7.0.0-rc.0) as universal web application platform
-* [module-map-ngfactory-loader 6](https://github.com/angular/universal/tree/v6.1.0) as server side rendering of lazy routes
-* [angular/cli 7](https://github.com/angular/angular-cli/tree/v7.0.0-rc.2) as code scaffolder
+* [angular 7](https://github.com/angular/angular/tree/7.0.0) as universal web application platform
+* [module-map-ngfactory-loader 7](https://github.com/angular/universal/tree/v7.0.2) as server side rendering of lazy routes
+* [angular/cli 7](https://github.com/angular/angular-cli/tree/v7.0.2) as code scaffolder
 * [webpack 4](https://github.com/webpack/webpack/tree/v4.19.1) as module bundler
 * [node](https://nodejs.org/dist/latest-v8.x/docs/api/) as server
 * [express](http://expressjs.com/en/4x/api.html) as request handler
