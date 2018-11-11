@@ -112,7 +112,7 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               {
-                "input": "styles.css"
+                "input": "src/styles.css"
               }
             ],
             "scripts": [],
