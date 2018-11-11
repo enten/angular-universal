@@ -1,16 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found.component';
-import { WelcomeComponent } from './welcome.component';
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent },
+  { path: '', loadChildren: './welcome/welcome.module#WelcomeModule' },
   { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  declarations: [
+    AppComponent,
+    NotFoundComponent,
+  ],
+  imports: [
+    RouterModule.forRoot(routes),
+  ],
+  exports: [
+    RouterModule,
+  ]
 })
 export class AppRoutingModule { }
