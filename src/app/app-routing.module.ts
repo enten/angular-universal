@@ -15,7 +15,9 @@ const routes: Routes = [
     NotFoundComponent,
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {
+      initialNavigation: true,
+    }),
   ],
   exports: [
     RouterModule,
