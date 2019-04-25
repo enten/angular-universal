@@ -10,13 +10,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This starter kit contains all the minimal tooling and configuration you need to kick off your next universal Angular 8 project.
 
-It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v8.0.0-beta.5) and [udk](https://github.com/enten/udk) to won't have to write specific code for development purposes only.
+It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v8.0.0-beta.14) and [udk](https://github.com/enten/udk) to won't have to write specific code for development purposes only.
 
 ## Features
 
-* [angular 8](https://github.com/angular/angular/tree/8.0.0-beta.7) as universal web application platform
+* [angular 8](https://github.com/angular/angular/tree/8.0.0-beta.14) as universal web application platform
 * [module-map-ngfactory-loader 7](https://github.com/angular/universal/tree/v7.1.1) as server side rendering of lazy routes
-* [angular/cli 8](https://github.com/angular/angular-cli/tree/v8.0.0-beta.5) as code scaffolder
+* [angular/cli 8](https://github.com/angular/angular-cli/tree/v8.0.0-beta.14) as code scaffolder
 * [webpack 4](https://github.com/webpack/webpack/tree/v4.29.6) as module bundler
 * [node](https://nodejs.org/dist/latest-v8.x/docs/api/) as server
 * [express](http://expressjs.com/en/4x/api.html) as request handler
