@@ -1,6 +1,6 @@
 # Universal Angular Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0-beta.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0-rc.4.
 
 ## Demo
 
@@ -10,19 +10,19 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This starter kit contains all the minimal tooling and configuration you need to kick off your next universal Angular 8 project.
 
-It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v8.0.0-beta.14) and [udk](https://github.com/enten/udk) to won't have to write specific code for development purposes only.
+It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v8.0.0-rc.4) and [udk](https://github.com/enten/udk) to won't have to write specific code for development purposes only.
 
 ## Features
 
-* [angular 8](https://github.com/angular/angular/tree/8.0.0-beta.14) as universal web application platform
-* [module-map-ngfactory-loader 7](https://github.com/angular/universal/tree/v7.1.1) as server side rendering of lazy routes
-* [angular/cli 8](https://github.com/angular/angular-cli/tree/v8.0.0-beta.14) as code scaffolder
-* [webpack 4](https://github.com/webpack/webpack/tree/v4.29.6) as module bundler
-* [node](https://nodejs.org/dist/latest-v8.x/docs/api/) as server
+* [angular 8](https://github.com/angular/angular/tree/8.0.0-rc.4) as universal web application platform
+* [module-map-ngfactory-loader 8](https://github.com/angular/universal/tree/v8.0.0-beta.0) as server side rendering of lazy routes
+* [angular/cli 8](https://github.com/angular/angular-cli/tree/v8.0.0-rc.4) as code scaffolder
+* [webpack 4](https://github.com/webpack/webpack/tree/v4.6.0) as module bundler
+* [node](https://nodejs.org/dist/latest-v10.x/docs/api/) as server
 * [express](http://expressjs.com/en/4x/api.html) as request handler
 * [udk-builder](https://github.com/enten/udk/blob/master/angular/lib/udk-builder.ts) as architect builder
 * [ng-udkc](https://github.com/enten/udk/tree/master/angular#ngcontainer) as extreme live development container to _**reload all the things!**_
-    * [webpack/hot/poll](https://github.com/webpack/webpack/blob/v4.29.6/hot/poll.js) to enable hmr on server side
+    * [webpack/hot/poll](https://github.com/webpack/webpack/blob/v4.6.0/hot/poll.js) to enable hmr on server side
     * [webpack-hot-middleware](https://github.com/webpack-contrib/webpack-hot-middleware) (dynamically mounted on server) and [@angularclass/hmr](https://github.com/gdi2290/angular-hmr) to enable hmr on
 browser side
     * [watchpack](https://github.com/webpack/watchpack) to restart dev container when a metafile changed
