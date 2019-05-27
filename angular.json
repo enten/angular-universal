@@ -167,6 +167,7 @@
       }
     }
   },
+  "defaultProject": "angular",
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "css"
