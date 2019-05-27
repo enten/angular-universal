@@ -1,4 +1,4 @@
-import { ApplicationRef, NgModuleRef, enableProdMode } from '@angular/core';
+import { ApplicationRef, enableProdMode, NgModuleRef } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { createNewHosts } from '@angularclass/hmr';
@@ -10,42 +10,26 @@ if (environment.production) {
   enableProdMode();
 }
 
-function bootstrap (boot: () => Promise<NgModuleRef<any>>) {
+async function main(): Promise<NgModuleRef<AppBrowserModule>> {
+  const ngModuleRef = await platformBrowserDynamic().bootstrapModule(AppBrowserModule);
+
   if (module.hot) {
-    return bootstrapWithHmr(boot);
+    module.hot.accept();
+
+    module.hot.dispose(async () => {
+      const appRef = ngModuleRef.injector.get(ApplicationRef);
+      const elements = appRef.components.map(c => c.location.nativeElement);
+      const makeVisible = createNewHosts(elements);
+
+      ngModuleRef.destroy();
+
+      makeVisible();
+    });
   }
 
-  return boot();
-}
+  console.log('AppBrowserModule boostraped!', ngModuleRef);
 
-function bootstrapWithHmr (boot: () => Promise<NgModuleRef<any>>) {
-  let ngModule: NgModuleRef<any>;
-
-  module.hot.accept();
-
-  const booting = boot().then((mod) => {
-    ngModule = mod;
-
-    return mod;
-  });
-
-  module.hot.dispose(() => {
-    const appRef: ApplicationRef = ngModule.injector.get(ApplicationRef);
-    const elements = appRef.components.map(c => c.location.nativeElement);
-    const makeVisible = createNewHosts(elements);
-
-    ngModule.destroy();
-
-    makeVisible();
-  });
-
-  return booting;
-}
-
-function main () {
-  bootstrap(() => platformBrowserDynamic().bootstrapModule(AppBrowserModule))
-    .then(ngModule => console.log('AppModule boostraped!'))
-    .catch(console.error);
+  return ngModuleRef;
 }
 
 if (document.readyState === 'loading') {
