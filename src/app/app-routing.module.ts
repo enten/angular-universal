@@ -16,7 +16,7 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(routes, {
-      initialNavigation: true,
+      initialNavigation: 'enabled',
     }),
   ],
   exports: [
