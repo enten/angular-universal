@@ -53,15 +53,25 @@ server.listen(PORT, () => {
 // HMR on server side
 if (module.hot) {
   const hmr = () => {
-    const { AppServerModuleNgFactory } = require('./app/app.server.module.ngfactory');
+    try {
+      const { AppServerModuleNgFactory } = require('./app/app.server.module.ngfactory');
+      exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
+    } catch (err) {
+      console.warn(`[HMR] Cannot update export of AppServerModuleNgFactory. ${err.stack || err.message}`);
+    }
 
-    exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
+    try {
+      const { WelcomeModuleNgFactory } = require('./app/welcome/welcome.module.ngfactory');
+      exports.LAZY_MODULE_MAP['./welcome/welcome.module#WelcomeModule'] = WelcomeModuleNgFactory;
+    } catch (err) {
+      console.warn(`[HMR] Cannot update lazy module WelcomeModule. ${err.stack || err.message}`);
+    }
 
-    const { WelcomeModuleNgFactory } = require('./app/welcome/welcome.module.ngfactory');
-
-    exports.LAZY_MODULE_MAP['./welcome/welcome.module#WelcomeModule'] = WelcomeModuleNgFactory;
-
-    requestListener = require('./api').createApi(BROWSER_DIST_PATH, getNgRenderMiddlewareOptions());
+    try {
+      requestListener = require('./api').createApi(BROWSER_DIST_PATH, getNgRenderMiddlewareOptions());
+    } catch (err) {
+      console.warn(`[HMR] Cannot update server api. ${err.stack || err.message}`);
+    }
   };
 
   module.hot.accept('./api', hmr);
