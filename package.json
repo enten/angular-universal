@@ -14,7 +14,7 @@
     "build:prod": "ng run app:udk:production",
     "build:prod-fr": "ng run app:udk:production-fr",
     "dev": "ng-udkc",
-    "dev:fr": "ng-udkc --configuration fr",
+    "dev:fr": "ng-udkc --project angular:udk:fr",
     "dev:spa": "ng serve --hmr",
     "dev:spa-fr": "ng serve --hmr --configuration fr",
     "test": "ng test",
