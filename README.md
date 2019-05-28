@@ -38,44 +38,42 @@ npm start
 
 ### Branches
 
-#### Branch [material](https://github.com/enten/angular-universal/tree/material)
-
-<div align="center">
-  <img alt="Preview of branch material" src="https://i.imgur.com/khXkDnA.png">
-</div>
-
-```shell
-git clone https://github.com/enten/angular-universal -b material my-project
+<table>
+  <thead>
+    <th>Branch</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/enten/angular-universal/tree/material">material</a></td>
+      <td><img alt="Preview of branch material" src="https://i.imgur.com/khXkDnA.png"></td>
+      <td><pre></code>git clone https://github.com/enten/angular-universal \
+  -b material my-project
 cd my-project
 npm install
-npm start
-```
-
-#### Branch [toh](https://github.com/enten/angular-universal/tree/toh)
-
-<div align="center">
-  <img alt="Preview of branch toh" src="https://i.imgur.com/T2TzP7t.png">
-</div>
-
-```shell
-git clone https://github.com/enten/angular-universal -b toh my-project
+npm start</code></pre></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/enten/angular-universal/tree/toh">toh</a></td>
+      <td><img alt="Preview of branch toh" src="https://i.imgur.com/T2TzP7t.png"></td>
+      <td><pre></code>git clone https://github.com/enten/angular-universal \
+  -b toh my-project
 cd my-project
 npm install
-npm start
-```
-
-#### Branch [i18n](https://github.com/enten/angular-universal/tree/i18n)
-
-<div align="center">
-  <img alt="Preview of branch i18n" src="https://i.imgur.com/6h2dkk7.png">
-</div>
-
-```shell
-git clone https://github.com/enten/angular-universal -b i18n my-project
+npm start</code></pre></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/enten/angular-universal/tree/i18n">i18n</a></td>
+      <td><img alt="Preview of branch i18n" src="https://i.imgur.com/6h2dkk7.png"></td>
+      <td><pre></code>git clone https://github.com/enten/angular-universal \
+  -b i18n my-project
 cd my-project
 npm install
-npm run start:fr
-```
+npm start</code></pre></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Development server
 
