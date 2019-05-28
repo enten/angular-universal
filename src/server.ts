@@ -13,6 +13,8 @@ import { MODULE_MAP } from '@nguniversal/module-map-ngfactory-loader';
 import { createApi } from './api';
 
 
+// WARN: don't remove export of AppServerModule.
+// Removing export below will break replaceServerBootstrap() transformer
 export { AppServerModule } from './app/app.server.module';
 
 
