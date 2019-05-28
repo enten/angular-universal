@@ -3,6 +3,10 @@
   "rules": {
     "array-type": false,
     "arrow-parens": false,
+    "ban-types": [
+      true,
+      ["String"]
+    ],
     "deprecation": {
       "severity": "warn"
     },
@@ -67,12 +71,24 @@
       "as-needed"
     ],
     "object-literal-sort-keys": false,
-    "ordered-imports": false,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "lowercase-last",
+        "named-imports-order": "lowercase-last"
+      }
+    ],
     "quotemark": [
       true,
       "single"
     ],
-    "trailing-comma": false,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,
