@@ -2,9 +2,9 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "defaultProject": "angular",
+  "defaultProject": "app",
   "projects": {
-    "angular": {
+    "app": {
       "root": "",
       "projectType": "application",
       "sourceRoot": "src",
@@ -62,11 +62,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular:build"
+            "browserTarget": "app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular:build:production"
+              "browserTarget": "app:build:production"
             }
           }
         },
@@ -92,13 +92,13 @@
         "udk": {
           "builder": "udk:udk-builder",
           "options": {
-            "browserTarget": "angular:build",
-            "serverTarget": "angular:server"
+            "browserTarget": "app:build",
+            "serverTarget": "app:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular:build:production",
-              "serverTarget": "angular:server:production",
+              "browserTarget": "app:build:production",
+              "serverTarget": "app:server:production",
               "verbose": true
             }
           }
@@ -106,7 +106,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular:build"
+            "browserTarget": "app:build"
           }
         },
         "test": {
@@ -143,11 +143,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular:serve"
+            "devServerTarget": "app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular:serve:production"
+              "devServerTarget": "app:serve:production"
             }
           }
         }
