@@ -12,9 +12,7 @@
     "dev:spa": "ng serve --hmr",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "now-build": "ng run angular:udk:production",
-    "now-start": "node ./dist/app/server/main.js"
+    "e2e": "ng e2e"
   },
   "dependencies": {
     "@angular/animations": "~8.0.0-rc.5",
