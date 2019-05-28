@@ -6,8 +6,8 @@ import { createServer } from 'http';
 import { join } from 'path';
 
 import { enableProdMode } from '@angular/core';
-import { MODULE_MAP } from '@nguniversal/module-map-ngfactory-loader';
 import { NgSetupOptions } from '@nguniversal/express-engine';
+import { MODULE_MAP } from '@nguniversal/module-map-ngfactory-loader';
 
 import { createApi } from './api';
 
