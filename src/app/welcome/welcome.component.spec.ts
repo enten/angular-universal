@@ -3,14 +3,15 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { WelcomeComponent } from './welcome.component';
 
+
 describe('WelcomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
       ],
       declarations: [
-        WelcomeComponent
+        WelcomeComponent,
       ],
     }).compileComponents();
   }));

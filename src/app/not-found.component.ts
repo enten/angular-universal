@@ -1,10 +1,12 @@
-import { Component, OnInit, Optional, PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
+import { APP_ID, Component, Inject, OnInit, Optional, PLATFORM_ID } from '@angular/core';
 import { RESPONSE } from '@nguniversal/express-engine/tokens';
+
 
 interface PartialResponse {
   status(code: number): this;
 }
+
 
 @Component({
   selector: 'app-not-found',

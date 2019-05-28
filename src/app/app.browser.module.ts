@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 
-import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
+import { AppModule } from './app.module';
+
 
 @NgModule({
   imports: [
-    AppModule
+    AppModule,
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
 })
 export class AppBrowserModule { }
