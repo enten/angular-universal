@@ -27,8 +27,6 @@ It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v8.0.0-rc
 browser side
     * [watchpack](https://github.com/webpack/watchpack) to restart dev container when a metafile changed
 
-**Important**: HMR doesn't work yet on server side with lazy routes (but works in browser side). We are trying to find a way which fixes this issue and we're still opened for possible solutions.
-
 ## Getting started
 
 ```shell

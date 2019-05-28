@@ -57,6 +57,10 @@ if (module.hot) {
 
     exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
 
+    const { WelcomeModuleNgFactory } = require('./app/welcome/welcome.module.ngfactory');
+
+    exports.LAZY_MODULE_MAP['./welcome/welcome.module#WelcomeModule'] = WelcomeModuleNgFactory;
+
     requestListener = require('./api').createApi(BROWSER_DIST_PATH, getNgRenderMiddlewareOptions());
   };
 
