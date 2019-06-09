@@ -16,6 +16,24 @@
       "prefix": "app",
       "architect": {
         "build": {
+          "builder": "udk:udk-builder",
+          "options": {
+            "browserTarget": "app:browser",
+            "serverTarget": "app:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "app:browser:production",
+              "serverTarget": "app:server:production",
+              "verbose": true
+            },
+            "spa": {
+              "browserTarget": "app:browser",
+              "serverTarget": "app:server:spa"
+            }
+          }
+        },
+        "browser": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/app/browser",
@@ -59,23 +77,16 @@
             }
           }
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "app:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "app:build:production"
-            }
-          }
-        },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/app/server",
             "main": "src/server.ts",
-            "tsConfig": "tsconfig.server.json"
+            "tsConfig": "tsconfig.server.json",
+            "sourceMap": {
+              "scripts": true,
+              "styles": false
+            }
           },
           "configurations": {
             "production": {
@@ -86,27 +97,37 @@
                 }
               ],
               "outputHashing": "media"
+            },
+            "spa": {
+              "fileReplacements": [
+                {
+                  "replace": "src/app/app-routes.ts",
+                  "with": "src/app/app-routes.spa.ts"
+                }
+              ]
             }
           }
         },
-        "udk": {
-          "builder": "udk:udk-builder",
+        "serve": {
+          "builder": "udk:udk-runner",
+          "options": {},
+          "configurations": {}
+        },
+        "serve-spa": {
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app:build",
-            "serverTarget": "app:server"
+            "browserTarget": "app:browser"
           },
           "configurations": {
             "production": {
-              "browserTarget": "app:build:production",
-              "serverTarget": "app:server:production",
-              "verbose": true
+              "browserTarget": "app:browser:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "app:build"
+            "browserTarget": "app:browser"
           }
         },
         "test": {
@@ -143,11 +164,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "app:serve"
+            "devServerTarget": "app:serve-spa"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "app:serve:production"
+              "devServerTarget": "app:serve-spa:production"
             }
           }
         }

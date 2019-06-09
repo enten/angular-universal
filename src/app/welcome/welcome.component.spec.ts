@@ -15,16 +15,19 @@ describe('WelcomeComponent', () => {
       ],
     }).compileComponents();
   }));
+
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(WelcomeComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
+
   it(`should have as title 'angular'`, async(() => {
     const fixture = TestBed.createComponent(WelcomeComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('angular');
   }));
+
   it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(WelcomeComponent);
     fixture.detectChanges();

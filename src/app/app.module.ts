@@ -6,16 +6,13 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found.component';
 
 
-export const APP_ID = 'my-app';
-
-
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: APP_ID }),
+    BrowserModule.withServerTransition({ appId: 'ng-app' }),
     AppRoutingModule,
   ],
   providers: [],

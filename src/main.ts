@@ -14,12 +14,12 @@ if (environment.production) {
 
 async function main(): Promise<NgModuleRef<AppBrowserModule>> {
   const ngModuleRef = await platformBrowserDynamic().bootstrapModule(AppBrowserModule);
+  const appRef = ngModuleRef.injector.get(ApplicationRef);
 
   if (module.hot) {
     module.hot.accept();
 
     module.hot.dispose(async () => {
-      const appRef = ngModuleRef.injector.get(ApplicationRef);
       const elements = appRef.components.map(c => c.location.nativeElement);
       const makeVisible = createNewHosts(elements);
 

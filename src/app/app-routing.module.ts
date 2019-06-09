@@ -1,18 +1,12 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
-import { NotFoundComponent } from './not-found.component';
-
-
-const routes: Routes = [
-  { path: '', loadChildren: () => import('./welcome/welcome.module').then(m => m.WelcomeModule) },
-  { path: '**', component: NotFoundComponent },
-];
+import { APP_ROUTES } from './app-routes';
 
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
+    RouterModule.forRoot(APP_ROUTES, {
       initialNavigation: 'enabled',
     }),
   ],

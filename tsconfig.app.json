@@ -7,9 +7,12 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "src/api.ts",
+    "**/*.spec.ts",
+    "**/*.stories.ts",
+    "e2e/**",
+    "src/api/**",
+    "src/app/app.server.module.ts",
     "src/server.ts",
-    "src/test.ts",
-    "src/**/*.spec.ts"
+    "src/stories/**"
   ]
 }

@@ -1,41 +1,33 @@
-# Universal Angular Application
+This project was generated with [Angular CLI][angular-cli] version 8.0.2.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+# Angular Universal 100% powered by Angular CLI
 
-## Demo
+### Fast, Unopinionated, Minimalist starter kit for [Angular Universal][angulario-ssr] 100% powered by [Angular CLI][angular-cli].
 
-[Live Demo](https://ng-universal-uwasvwgjiu.now.sh/) is running on [now.sh](https://zeit.co/steventen/ng-universal/uwasvwgjiu/).
+Unlike the [Official Angular Universal starter kit][official-universal-kit] and other [Awesome Universal Seed Projects][awesome-angular], this starter kit is **universal 100% which means you developing for both browser and server at the same time**.
 
-## About
+The main other difference is that **you only need [Angular CLI](https://angular.io/cli)** to kick off your next [Angular Universal][angulario-ssr] project:
 
-This starter kit contains all the minimal tooling and configuration you need to kick off your next universal Angular 8 project.
+* `ng build` - Building bundles for both browser and server platforms in [same compilation][webpack-multicompiler-example] ;
+* `ng serve` - Running universal dev server with [Hot Module Replacement (HMR)][webpack-concept-hmr] enabled on browser and server sides ;
+* `ng serve -c spa` - Running universal dev server with Server Side Rendering (SSR) disabled for angular routes only.
 
-It combines [@angular/cli](https://github.com/angular/angular-cli/tree/v8.0.0) and [udk](https://github.com/enten/udk) to won't have to write specific code for development purposes only.
-
-## Features
-
-* [angular 8](https://github.com/angular/angular/tree/8.0.0) as universal web application platform
-* [module-map-ngfactory-loader 8](https://github.com/angular/universal/tree/v8.0.0-beta.0) as server side rendering of lazy routes
-* [angular/cli 8](https://github.com/angular/angular-cli/tree/v8.0.0) as code scaffolder
-* [webpack 4](https://github.com/webpack/webpack/tree/v4.6.0) as module bundler
-* [node](https://nodejs.org/dist/latest-v10.x/docs/api/) as server
-* [express](http://expressjs.com/en/4x/api.html) as request handler
-* [udk-builder](https://github.com/enten/udk/blob/master/angular/lib/udk-builder.ts) as architect builder
-* [ng-udkc](https://github.com/enten/udk/tree/master/angular#ngcontainer) as extreme live development container to _**reload all the things!**_
-    * [webpack/hot/poll](https://github.com/webpack/webpack/blob/v4.6.0/hot/poll.js) to enable hmr on server side
-    * [webpack-hot-middleware](https://github.com/webpack-contrib/webpack-hot-middleware) (dynamically mounted on server) and [@angularclass/hmr](https://github.com/gdi2290/angular-hmr) to enable hmr on
-browser side
-    * [watchpack](https://github.com/webpack/watchpack) to restart dev container when a metafile changed
+In other words, this starter kit gives superpower for those who want develop universal application fastly with no pain. Just keep in mind with great power comes [great responsibility (Universal Gotcha's)][universal-gotchas].
 
 ## Getting started
 
 ```shell
-git clone https://github.com/enten/angular-universal my-project
-cd my-project
+git clone https://github.com/enten/angular-universal
+cd angular-universal
 npm install
-npm start
+ng serve
 ```
 
+<!--
+TODO(enten): Thinking about removing branches. I will add notice to check if someone ask for update.
+-->
+
+<!--
 ### Branches
 
 <table>
@@ -74,33 +66,19 @@ npm start</code></pre></td>
     </tr>
   </tbody>
 </table>
+-->
 
 ## Development server
 
-Two different dev servers are provided:
-
-* The universal dev server which enable SSR (build `browser` and `server` targets) ;
-* The [SPA](https://en.wikipedia.org/wiki/Single-page_application) dev server which is a [webpack dev server](https://github.com/webpack/webpack-dev-server) (build `browser` target only).
-
-SPA dev server can be useless (or "broken"): it depends on your server implementation.
-
-### Universal dev server
-
-Run `npm run dev` (or `npx ng-udkc`) for an universal dev server. Navigate to [http://localhost:4000/](http://localhost:4000/).
+Run `ng serve` to start universal dev server. Navigate to [http://localhost:4000/](http://localhost:4000/).
 
 The app will automatically hot-reload on server and browser sides if you change any of the source files.
 
-The server will automatically restart if a change occured in `metafiles` and `metadirs` defined in [udk.container.js](./udk.container.js).
+The full compilation will automatically restart if a hot chunk can't be applied on server side.
 
-[![Universal dev server with ng-udkc](https://i.imgur.com/vPzCMBk.gif)](https://imgur.com/a/cpbhHgg)
+Tip: run `ng serve -c spa` to disable server side rendering of routes only.
 
-### SPA dev server
-
-Run `npm run dev:spa` (or `npx ng serve --hmr`) for a SPA dev server Navigate to [http://localhost:4200/](http://localhost:4200/).
-
-The app will automatically reload if you change any of the browser source files.
-
-Note: the universal dev server provide an SPA mode too if you navigate to the `index.html`: [http://localhost:4000/index.html](http://localhost:4000/index.html).
+[![Universal dev server with ng-udkc][preview-img-src]][preview-img-href]
 
 ## Code scaffolding
 
@@ -108,9 +86,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `npm run build` to build the project. The build artifacts will be stored in the `dist/app` directory.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/app` directory.
 
-Run `npm run build:prod` for a production build.
+Run `ng build --prod` for a production build.
+
+Run `node dist/app/server/main.js` to start application built.
 
 ## Running unit tests
 
@@ -122,4 +102,15 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README][angular-cli].
+
+
+[angulario-ssr]: https://angular.io/guide/universal
+[angular-cli]: https://github.com/angular/angular-cli
+[awesome-angular]: https://github.com/PatrickJS/awesome-angular#universal-seed-projects
+[official-universal-kit]: https://github.com/angular/universal-starter
+[preview-img-href]: https://imgur.com/a/cpbhHgg
+[preview-img-src]: https://i.imgur.com/vPzCMBk.gif
+[universal-gotchas]: https://github.com/angular/universal/blob/master/docs/gotchas.md
+[webpack-concept-hmr]: https://webpack.js.org/concepts/hot-module-replacement/
+[webpack-multicompiler-example]: https://github.com/webpack/webpack/tree/master/examples/multi-compiler
