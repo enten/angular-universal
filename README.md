@@ -1,3 +1,8 @@
+# WARNING: This branch is NOT up to date
+# You can ask for update by opening an issue.
+
+---
+
 # Universal Angular Application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
