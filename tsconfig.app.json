@@ -3,8 +3,12 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app"
   },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*.d.ts"
   ],
   "exclude": [
     "**/*.spec.ts",
@@ -13,6 +17,7 @@
     "src/api/**",
     "src/app/app.server.module.ts",
     "src/server.ts",
-    "src/stories/**"
+    "src/stories/**",
+    "src/test.ts"
   ]
 }
