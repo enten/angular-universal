@@ -31,7 +31,7 @@ export const BROWSER_DIST_PATH = join(__dirname, '..', 'browser');
 
 
 export const getNgRenderMiddlewareOptions: () => NgSetupOptions = () => ({
-  bootstrap: exports.AppServerModuleNgFactory,
+  bootstrap: exports.AppServerModule,
   providers: [
     // Import module map for lazy loading
     {
@@ -64,10 +64,10 @@ server.listen(PORT, () => {
 if (module.hot) {
   const hmr = () => {
     try {
-      const { AppServerModuleNgFactory } = require('./app/app.server.module.ngfactory');
-      exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
+      const { AppServerModule } = require('./app/app.server.module');
+      exports.AppServerModule = AppServerModule;
     } catch (err) {
-      console.warn(`[HMR] Cannot update export of AppServerModuleNgFactory. ${err.stack || err.message}`);
+      console.warn(`[HMR] Cannot update export of AppServerModule. ${err.stack || err.message}`);
     }
 
     try {
@@ -79,7 +79,6 @@ if (module.hot) {
 
   module.hot.accept('./api', hmr);
   module.hot.accept('./app/app.server.module', hmr);
-  module.hot.accept('./app/app.server.module.ngfactory', hmr);
 }
 
 

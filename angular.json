@@ -1,8 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
+  "version": 1, 
   "newProjectRoot": "projects",
-  "defaultProject": "app",
+  "defaultProject": "app",  
   "projects": {
     "app": {
       "root": "",
@@ -24,8 +24,7 @@
           "configurations": {
             "production": {
               "browserTarget": "app:browser:production",
-              "serverTarget": "app:server:production",
-              "verbose": true
+              "serverTarget": "app:server:production"
             },
             "spa": {
               "browserTarget": "app:browser",
@@ -41,6 +40,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -63,7 +63,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -72,6 +71,11 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -82,6 +86,7 @@
           "options": {
             "outputPath": "dist/app/server",
             "main": "src/server.ts",
+            "bundleDependencies": false,
             "tsConfig": "tsconfig.server.json",
             "sourceMap": {
               "scripts": true,
@@ -110,7 +115,9 @@
         },
         "serve": {
           "builder": "udk:udk-runner",
-          "options": {},
+          "options": {
+            "universalTarget": "app:build"
+          },
           "configurations": {}
         },
         "serve-spa": {
