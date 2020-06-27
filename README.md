@@ -20,6 +20,7 @@ In other words, this starter kit gives superpower for those who want develop uni
 git clone https://github.com/enten/angular-universal
 cd angular-universal
 npm install
+./node_modules/.bin/ngcc
 ng serve
 ```
 
