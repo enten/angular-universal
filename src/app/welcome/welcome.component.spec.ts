@@ -1,4 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { WelcomeComponent } from './welcome.component';
@@ -28,10 +29,10 @@ describe('WelcomeComponent', () => {
     expect(app.title).toEqual('angular');
   }));
 
-  it('should render title in a h1 tag', async(() => {
+  it('should render title as rocket message', async(() => {
     const fixture = TestBed.createComponent(WelcomeComponent);
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular!');
+    const rocketMessage = fixture.debugElement.query(By.css('#rocket-message'))?.nativeElement;
+    expect(rocketMessage?.textContent).toContain('angular app is running!');
   }));
 });
