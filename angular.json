@@ -35,6 +35,12 @@
         "browser": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "@angularclass/hmr",
+              "querystring",
+              "strip-ansi",
+              "webpack-hot-middleware/client?path=/__webpack_hmr&name=browser"
+            ],
             "outputPath": "dist/app/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -60,11 +66,11 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "extractCss": true,
-              "namedChunks": false,
+              "namedChunks": true,
               "extractLicenses": true,
-              "vendorChunk": false,
+              "vendorChunk": true,
               "buildOptimizer": true,
               "budgets": [
                 {
@@ -164,6 +170,7 @@
             "tsConfig": [
               "tsconfig.app.json",
               "tsconfig.spec.json",
+              "tsconfig.server.json",
               "e2e/tsconfig.json"
             ],
             "exclude": [
