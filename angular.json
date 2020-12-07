@@ -92,7 +92,6 @@
           "options": {
             "outputPath": "dist/app/server",
             "main": "src/server.ts",
-            "bundleDependencies": false,
             "tsConfig": "tsconfig.server.json",
             "sourceMap": {
               "scripts": true,

@@ -1,4 +1,4 @@
-This project was generated with [Angular CLI][angular-cli] version 10.0.0.
+This project was generated with [Angular CLI][angular-cli] version 11.0.3.
 
 # Angular Universal 100% powered by Angular CLI
 
@@ -103,8 +103,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README][angular-cli].
-
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 [angulario-ssr]: https://angular.io/guide/universal
 [angular-cli]: https://github.com/angular/angular-cli

@@ -10,12 +10,12 @@ export interface ServerAPIOptions {
 }
 
 
-export function createApi(options: ServerAPIOptions) {
+export function createApi(options: ServerAPIOptions): express.Express {
   const router = express();
 
   // Ensures source maps aren't readable on production
   if (options.hideSourceMap) {
-    router.get('*.(cs|j)s.map', (_req, res) => res.sendStatus(404));
+    router.get('*.(cs|j)s.map', (req, res) => res.sendStatus(404));
   }
 
   router.use(createNgRenderMiddleware(options.distPath, options.ngSetup));
@@ -24,19 +24,23 @@ export function createApi(options: ServerAPIOptions) {
 }
 
 
-export function createNgRenderMiddleware(distPath: string, ngSetup: NgSetupOptions) {
+export function createNgRenderMiddleware(distPath: string, ngSetup: NgSetupOptions): express.Express {
   const router = express();
 
   router.set('view engine', 'html');
   router.set('views', distPath);
 
   // Server static files from distPath
-  router.get('*.*', express.static(distPath, {
-    maxAge: '1y',
-  }));
+  router.get('*.*', express.static(distPath, { maxAge: '1y' }), (req, res, next) => {
+    if (/\.\w+$/.test(req.path)) {
+      res.sendStatus(404);
+    } else {
+      next();
+    }
+  });
 
-  // Angular Express Engine
-  router.engine('html', ngExpressEngine(ngSetup));
+  // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
+  router.engine('html', ngExpressEngine(ngSetup) as any);
 
   // All regular routes use the Universal engine
   router.get('*', (req, res) => res.render('index', {

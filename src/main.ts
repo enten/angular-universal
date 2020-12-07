@@ -19,7 +19,7 @@ async function main(): Promise<NgModuleRef<AppBrowserModule>> {
   if (module.hot) {
     module.hot.accept();
 
-    module.hot.dispose(async () => {
+    module.hot.dispose(() => {
       const elements = appRef.components.map(c => c.location.nativeElement);
       const makeVisible = createNewHosts(elements);
 

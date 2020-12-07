@@ -12,7 +12,7 @@ import { environment } from './environments/environment';
 
 
 // WARN: don't remove export of AppServerModule.
-// Removing export below will break replaceServerBootstrap() transformer
+// Removing export below will break replaceServerBootstrap() transformer.
 export { AppServerModule } from './app/app.server.module';
 
 
@@ -23,9 +23,9 @@ if (environment.production) {
 }
 
 
-export const PORT = +process.env.PORT || 4000;
+// WARN: keep in mind that __filename ends with dist/app/server/main.js during runtime.
+// WARN: keep in mind that __dirname ends with dist/app/server during runtime.
 export const BROWSER_DIST_PATH = join(__dirname, '..', 'browser');
-
 
 export const getServerAPIOptions: (bootstrap: Type<{}>) => ServerAPIOptions = bootstrap => ({
   distPath: BROWSER_DIST_PATH,
@@ -39,13 +39,9 @@ export const getServerAPIOptions: (bootstrap: Type<{}>) => ServerAPIOptions = bo
 
 let requestListener = createApi(getServerAPIOptions(AppServerModule));
 
-// Start up the Node server
+// Create the Node server
 const server = createServer((req, res) => {
   requestListener(req, res);
-});
-
-server.listen(PORT, () => {
-  console.log(`Server listening -- http://localhost:${PORT}`);
 });
 
 
@@ -72,4 +68,25 @@ if (module.hot) {
 }
 
 
+// Webpack will replace 'require' with '__webpack_require__'
+// '__non_webpack_require__' is a proxy to Node 'require'
+// The below code is to ensure that the server is run only when not requiring the bundle.
+declare const __non_webpack_require__: NodeRequire;
+const mainModule = __non_webpack_require__.main;
+const moduleFilename = mainModule && mainModule.filename || '';
+if (
+  moduleFilename === __filename
+  || moduleFilename.includes('iisnode')
+  || moduleFilename.includes('udk/lib/util/container')
+) {
+  const PORT = process.env.PORT ? +process.env.PORT : 4000;
+
+  server.listen(PORT, () => {
+    console.log(`Server listening -- http://localhost:${PORT}`);
+  });
+}
+
+
+// WARN: don't remove export default of server.
+// Removing export below will break universal dev server.
 export default server;
