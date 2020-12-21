@@ -1,4 +1,4 @@
-This project was generated with [Angular CLI][angular-cli] version 11.0.3.
+This project was generated with [Angular CLI][angular-cli] version 11.0.5.
 
 # Angular Universal 100% powered by Angular CLI
 
