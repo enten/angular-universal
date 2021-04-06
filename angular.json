@@ -19,7 +19,9 @@
           "builder": "udk:udk-builder",
           "options": {
             "browserTarget": "app:browser",
-            "serverTarget": "app:server"
+            "serverTarget": "app:server",
+            "outputPath": "dist/app",
+            "generatePackageJson": true
           },
           "configurations": {
             "production": {
