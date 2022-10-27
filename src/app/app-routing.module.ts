@@ -7,7 +7,7 @@ import { APP_ROUTES } from './app-routes';
 @NgModule({
   imports: [
     RouterModule.forRoot(APP_ROUTES, {
-      initialNavigation: 'enabled',
+      initialNavigation: 'enabledBlocking',
     }),
   ],
   exports: [RouterModule],

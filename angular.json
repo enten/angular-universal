@@ -51,6 +51,7 @@
             "styles": [
               "src/styles.scss"
             ],
+            "sourceMap": true,
             "scripts": []
           },
           "configurations": {
@@ -78,7 +79,6 @@
               "outputHashing": "all",
               "extractLicenses": true,
               "namedChunks": true,
-              "sourceMap": true,
               "vendorChunk": true
             },
             "development": {
@@ -86,7 +86,6 @@
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
               "namedChunks": true
             }
           },
@@ -98,15 +97,14 @@
             "outputPath": "dist/app/server",
             "main": "src/server.ts",
             "tsConfig": "tsconfig.server.json",
-            "sourceMap": {
-              "scripts": true,
-              "styles": false
-            },
-            "bundleDependencies": false
+            "inlineStyleLanguage": "scss",
+            "namedChunks": true,
+            "sourceMap": true
           },
           "configurations": {
             "production": {
               "bundleDependencies": true,
+              "extractLicenses": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -116,10 +114,12 @@
               "outputHashing": "media"
             },
             "development": {
-              "bundleDependencies": true
+              "optimization": false,
+              "extractLicenses": false
             },
             "spa": {
-              "bundleDependencies": true,
+              "optimization": false,
+              "extractLicenses": false,
               "fileReplacements": [
                 {
                   "replace": "src/app/app-routes.ts",
@@ -151,12 +151,6 @@
             }
           },
           "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "app:build"
-          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",

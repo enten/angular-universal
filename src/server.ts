@@ -1,6 +1,16 @@
 // These are important and needed before anything else
 import 'zone.js/dist/zone-node';
 
+/***************************************************************************************************
+ * Initialize the server environment - for example, adding DOM built-in types to the global scope.
+ *
+ * NOTE:
+ * This import must come before any imports (direct or transitive) that rely on DOM built-ins being
+ * available, such as `@angular/elements`.
+ */
+import '@angular/platform-server/init';
+
+
 import { createServer } from 'http';
 import { join } from 'path';
 
@@ -27,7 +37,7 @@ if (environment.production) {
 // WARN: keep in mind that __dirname ends with dist/app/server during runtime.
 export const BROWSER_DIST_PATH = join(__dirname, '..', 'browser');
 
-export const getServerAPIOptions: (bootstrap: Type<{}>) => ServerAPIOptions = bootstrap => ({
+export const getServerAPIOptions = (bootstrap: Type<{}>): ServerAPIOptions => ({
   distPath: BROWSER_DIST_PATH,
   ngSetup: {
     bootstrap,
@@ -55,7 +65,7 @@ if (
   moduleFilename === __filename
   || moduleFilename.includes('iisnode')
 ) {
-  const PORT = process.env.PORT ? +process.env.PORT : 4000;
+  const PORT = process.env['PORT'] ? +process.env['PORT'] : 4000;
 
   server.listen(PORT, () => {
     console.log(`Server listening -- http://localhost:${PORT}`);

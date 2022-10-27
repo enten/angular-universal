@@ -20,8 +20,8 @@ async function main(): Promise<NgModuleRef<AppBrowserModule>> {
 }
 
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', main);
+if (document.readyState === 'complete') {
+  main().catch(console.error);
 } else {
-  main();
+  document.addEventListener('DOMContentLoaded', main);
 }

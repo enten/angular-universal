@@ -1,6 +1,6 @@
 # Angular Universal 100% powered by Angular CLI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
 
 ### Fast, Unopinionated, Minimalist starter kit for [Angular Universal][angulario-ssr] 100% powered by [Angular CLI][angular-cli].
 
@@ -35,7 +35,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project for production. The build artifacts will be stored in the `dist/` directory.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 Run `node dist/app/server/main.js` to start application built.
 
