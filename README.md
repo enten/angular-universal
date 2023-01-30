@@ -1,6 +1,6 @@
 # Angular Universal 100% powered by Angular CLI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
 
 ### Fast, Unopinionated, Minimalist starter kit for [Angular Universal][angulario-ssr] 100% powered by [Angular CLI][angular-cli].
 

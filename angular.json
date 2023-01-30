@@ -31,6 +31,12 @@
                 { "target": "app:browser:production" },
                 { "target": "app:server:production" }
               ]
+            },
+            "watch": {
+              "targets": [
+                { "target": "app:browser:watch" },
+                { "target": "app:server:watch" }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -41,7 +47,9 @@
             "outputPath": "dist/app/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -87,6 +95,14 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "namedChunks": true
+            },
+            "watch": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "namedChunks": true,
+              "watch": true
             }
           },
           "defaultConfiguration": "production"
@@ -103,7 +119,6 @@
           },
           "configurations": {
             "production": {
-              "bundleDependencies": true,
               "extractLicenses": true,
               "fileReplacements": [
                 {
@@ -126,6 +141,11 @@
                   "with": "src/app/app-routes.spa.ts"
                 }
               ]
+            },
+            "watch": {
+              "optimization": false,
+              "extractLicenses": false,
+              "watch": true
             }
           },
           "defaultConfiguration": "production"
@@ -155,10 +175,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
@@ -172,6 +193,5 @@
         }
       }
     }
-  },
-  "defaultProject": "app"
+  }
 }

@@ -1,5 +1,5 @@
 // These are important and needed before anything else
-import 'zone.js/dist/zone-node';
+import 'zone.js/node';
 
 /***************************************************************************************************
  * Initialize the server environment - for example, adding DOM built-in types to the global scope.
