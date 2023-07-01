@@ -119,6 +119,8 @@
           },
           "configurations": {
             "production": {
+              "buildOptimizer": true,
+              "optimization": true,
               "extractLicenses": true,
               "fileReplacements": [
                 {
@@ -129,12 +131,16 @@
               "outputHashing": "media"
             },
             "development": {
-              "optimization": false,
-              "extractLicenses": false
-            },
-            "spa": {
+              "buildOptimizer": false,
               "optimization": false,
               "extractLicenses": false,
+              "vendorChunk": true
+            },
+            "spa": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "extractLicenses": false,
+              "vendorChunk": true,
               "fileReplacements": [
                 {
                   "replace": "src/app/app-routes.ts",
@@ -143,9 +149,11 @@
               ]
             },
             "watch": {
+              "buildOptimizer": false,
               "optimization": false,
               "extractLicenses": false,
-              "watch": true
+              "watch": true,
+              "vendorChunk": true
             }
           },
           "defaultConfiguration": "production"

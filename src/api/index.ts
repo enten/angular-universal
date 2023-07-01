@@ -13,6 +13,9 @@ export interface ServerAPIOptions {
 export function createApi(options: ServerAPIOptions): express.Express {
   const router = express();
 
+  // Example Express Rest API endpoints
+  // router.get('/api/**', (req, res) => { });
+
   // Ensures source maps aren't readable on production
   if (options.hideSourceMap) {
     router.get('*.(cs|j)s.map', (req, res) => res.sendStatus(404));
@@ -39,8 +42,8 @@ export function createNgRenderMiddleware(distPath: string, ngSetup: NgSetupOptio
     }
   });
 
-  // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
-  router.engine('html', ngExpressEngine(ngSetup) as any);
+  // Our Universal express-engine (found @ https://github.com/angular/universal/tree/main/modules/express-engine)
+  router.engine('html', ngExpressEngine(ngSetup));
 
   // All regular routes use the Universal engine
   router.get('*', (req, res) => res.render('index', {

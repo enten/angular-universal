@@ -12,7 +12,7 @@ import { NotFoundComponent } from './not-found.component';
     NotFoundComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-app' }),
+    BrowserModule,
     AppRoutingModule,
   ],
   providers: [],

@@ -11,10 +11,10 @@ import 'zone.js/node';
 import '@angular/platform-server/init';
 
 
-import { createServer } from 'http';
-import { join } from 'path';
+import { createServer } from 'node:http';
+import { join } from 'node:path';
 
-import { Type, enableProdMode } from '@angular/core';
+import { Type } from '@angular/core';
 
 import { ServerAPIOptions, createApi } from './api';
 import { AppServerModule } from './app/app.server.module';
@@ -24,13 +24,6 @@ import { environment } from './environments/environment';
 // WARN: don't remove export of AppServerModule.
 // Removing export below will break replaceServerBootstrap() transformer.
 export { AppServerModule } from './app/app.server.module';
-
-
-// Faster server renders w/ Prod mode.
-// Prod mode isn't enabled by default because that breaks debugging tools like Augury.
-if (environment.production) {
-  enableProdMode();
-}
 
 
 // WARN: keep in mind that __filename ends with dist/app/server/main.js during runtime.

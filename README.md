@@ -1,6 +1,6 @@
 # Angular Universal 100% powered by Angular CLI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
 ### Fast, Unopinionated, Minimalist starter kit for [Angular Universal][angulario-ssr] 100% powered by [Angular CLI][angular-cli].
 
@@ -55,6 +55,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [angular-cli]: https://github.com/angular/angular-cli
 [awesome-angular]: https://github.com/PatrickJS/awesome-angular#universal-seed-projects
 [official-universal-kit]: https://github.com/angular/universal-starter
-[ssr-dev-server]: https://github.com/angular/universal/tree/master/modules/builders/src/ssr-dev-server
-[universal-gotchas]: https://github.com/angular/universal/blob/master/docs/gotchas.md
+[ssr-dev-server]: https://github.com/angular/universal/tree/main/modules/builders/src/ssr-dev-server
+[universal-gotchas]: https://github.com/angular/universal/blob/main/docs/gotchas.md
 [webpack-concept-hmr]: https://webpack.js.org/concepts/hot-module-replacement/
